@@ -6,7 +6,8 @@ using UnityEngine.Networking;
 using MiniJSON;
 public class GetWeb : MonoBehaviour{
     // Start is called before the first frame update
-    public void onClick(){
+    public COVIDList data{get;set;}
+    void Awake(){
         StartCoroutine(getWeb());
     }
 
@@ -22,8 +23,7 @@ public class GetWeb : MonoBehaviour{
         }
         switch(webRequest.downloadProgress){
             case 1:
-                COVIDList data = JsonUtility.FromJson<COVIDList>(webRequest.downloadHandler.text);
-                Debug.Log(data.area[0].name);
+                data = JsonUtility.FromJson<COVIDList>(webRequest.downloadHandler.text);
                 break;
             case 0.5f:
                 Debug.Log("connecting... downloadHandler is null");
