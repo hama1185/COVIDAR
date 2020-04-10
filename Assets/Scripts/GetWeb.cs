@@ -12,6 +12,7 @@ public class GetWeb : MonoBehaviour{
 
     IEnumerator getWeb(){
         //リクエスト文
+        //jigさんからのjsonを使用する
         var webRequest = UnityWebRequest.Get("https://app.sabae.cc/api/covid19japan.json");
         //通信
         yield return webRequest.SendWebRequest();
