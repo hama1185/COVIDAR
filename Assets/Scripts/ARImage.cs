@@ -40,4 +40,19 @@ public class ARImage : MonoBehaviour
         }
         
     }
+    public void onClick(){
+        if(Japan != null){
+            for(int i = 0;i < Japan.transform.childCount; i++){
+                if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
+                    var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
+                    prefecture.localScale = new Vector3(0.1f, 0.1f * getWeb.data.area[i].npatients, 0.1f);
+                    prefecture.position = new Vector3(i * 0.1f, 0.05f * getWeb.data.area[i].npatients, 0.0f);
+                }
+                else{
+                    Debug.Log("getWeb" + getWeb.data.area[i].name);
+                    Debug.Log("object" + transform.GetChild(i).name);
+                }
+            }
+        }
+    }
 }

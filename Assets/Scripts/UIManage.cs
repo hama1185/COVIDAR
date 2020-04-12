@@ -15,6 +15,6 @@ public class UIManage : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        UpdateTime.text = "This data is for" + getWeb.data.lastUpdate;
+        UpdateTime.text = "This data is for " + getWeb.data.lastUpdate.ToString();
     }
 }
