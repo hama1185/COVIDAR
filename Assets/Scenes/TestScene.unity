@@ -2052,7 +2052,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 931366904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1872807838}
+        m_MethodName: onClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &931366904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3716,7 +3727,7 @@ GameObject:
   - component: {fileID: 1518723929}
   - component: {fileID: 1518723928}
   m_Layer: 0
-  m_Name: Hokaido
+  m_Name: Hokkaido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4594,6 +4605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1872807837}
+  - component: {fileID: 1872807838}
   m_Layer: 0
   m_Name: Japan
   m_TagString: Untagged
@@ -4662,6 +4674,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1872807838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872807836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1203c59e90c62364ea5957f82afb258d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WebManager: {fileID: 1005541876}
 --- !u!1 &1956483679
 GameObject:
   m_ObjectHideFlags: 0
