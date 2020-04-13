@@ -16,8 +16,8 @@ public class Manager : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        // modeCheck();
-        // modeChange();
+        modeCheck();
+        modeChange();
     }
     void modeCheck(){
         if(currentMode != MainMode.text){
@@ -33,15 +33,15 @@ public class Manager : MonoBehaviour
         else if(MainMode.text == "累計感染者"){
             arImage.delete();
             arImage.enabled = true;
-            if(modeFlag && arImage.Japan != null){
+            if(modeFlag){
                 arImage.modePatients();
-                modeFlag = false;
+                modeFlag = false;            
             }
         }
         else if(MainMode.text == "現在感染者"){
             arImage.delete();
             arImage.enabled = true;
-            if(modeFlag && arImage.Japan != null){
+            if(modeFlag){
                 arImage.modeCurrentpatients();
                 modeFlag = false;
             }
@@ -49,7 +49,7 @@ public class Manager : MonoBehaviour
         else if(MainMode.text == "退院者"){
             arImage.delete();
             arImage.enabled = true;
-            if(modeFlag && arImage.Japan != null){
+            if(modeFlag){
                 arImage.modeExits();
                 modeFlag = false;
             }
@@ -57,7 +57,7 @@ public class Manager : MonoBehaviour
         else if(MainMode.text == "死者"){
             arImage.delete();
             arImage.enabled = true;
-            if(modeFlag && arImage.Japan != null){
+            if(modeFlag){
                 arImage.modeDeaths();
                 modeFlag = false;
             }

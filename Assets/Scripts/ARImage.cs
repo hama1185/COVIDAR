@@ -6,10 +6,9 @@ using GoogleARCore;
 
 public class ARImage : MonoBehaviour
 {
-    public Text DebugText;
     GameObject japan = null;
     public GameObject PrefabJapan;
-    public GameObject Japan = null;
+    private GameObject Japan = null;
     public GameObject WebManager;
     GetWeb getWeb;
     // Start is called before the first frame update
@@ -47,18 +46,19 @@ public class ARImage : MonoBehaviour
             for(int i = 0;i < Japan.transform.childCount; i++){
                 if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
                     var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
-                    prefecture.localScale = new Vector3(0.01f, 0.001f * getWeb.data.area[i].npatients,0.01f);
+                    if(getWeb.data.area[i].npatients > 0){
+                        prefecture.localScale = new Vector3(0.1f, 0.001f * getWeb.data.area[i].npatients,0.1f);
+                    }
+                    else{
+                        prefecture.localScale = new Vector3(0, 0, 0);
+                    }
                     prefecture.localPosition = new Vector3(prefecture.localPosition.x, 0.0005f * getWeb.data.area[i].npatients, prefecture.localPosition.z);
                 }
                 else{
-                    DebugText.text = getWeb.data.area[i].name;
                     Debug.Log("getWeb" + getWeb.data.area[i].name);
                     Debug.Log("object" + transform.GetChild(i).name);
                 }
             }
-        }
-        else{
-            DebugText.text = "null";
         }
     }
     public void delete(){
@@ -67,57 +67,85 @@ public class ARImage : MonoBehaviour
     }
     //累計感染者
     public void modePatients(){
-        for(int i = 0;i < Japan.transform.childCount; i++){
-            if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
-                var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
-                prefecture.localScale = new Vector3(0.1f, 0.1f * getWeb.data.area[i].npatients, 0.1f);
-                prefecture.position = new Vector3(prefecture.position.x, 0.05f * getWeb.data.area[i].npatients, prefecture.position.z);
-            }
-            else{
-                Debug.Log("getWeb" + getWeb.data.area[i].name);
-                Debug.Log("object" + transform.GetChild(i).name);
+        if(Japan != null){
+            for(int i = 0;i < Japan.transform.childCount; i++){
+                if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
+                    var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
+                    if(getWeb.data.area[i].npatients > 0){
+                        prefecture.localScale = new Vector3(0.1f, 0.001f * getWeb.data.area[i].npatients,0.1f);
+                    }
+                    else{
+                        prefecture.localScale = new Vector3(0, 0, 0);
+                    }
+                    prefecture.localPosition = new Vector3(prefecture.localPosition.x, 0.0005f * getWeb.data.area[i].npatients, prefecture.localPosition.z);
+                }
+                else{
+                    Debug.Log("getWeb" + getWeb.data.area[i].name);
+                    Debug.Log("object" + transform.GetChild(i).name);
+                }
             }
         }
     }
     //現在感染者
     public void modeCurrentpatients(){
-        for(int i = 0;i < Japan.transform.childCount; i++){
-            if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
-                var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
-                prefecture.localScale = new Vector3(0.1f, 0.1f * getWeb.data.area[i].ncurrentpatients, 0.1f);
-                prefecture.position = new Vector3(prefecture.position.x, 0.05f * getWeb.data.area[i].ncurrentpatients, prefecture.position.z);
-            }
-            else{
-                Debug.Log("getWeb" + getWeb.data.area[i].name);
-                Debug.Log("object" + transform.GetChild(i).name);
+        if(Japan != null){
+            for(int i = 0;i < Japan.transform.childCount; i++){
+                if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
+                    var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
+                    if(getWeb.data.area[i].ncurrentpatients > 0){
+                        prefecture.localScale = new Vector3(0.1f, 0.001f * getWeb.data.area[i].ncurrentpatients,0.1f);
+                    }
+                    else{
+                        prefecture.localScale = new Vector3(0, 0, 0);
+                    }
+                    prefecture.localPosition = new Vector3(prefecture.localPosition.x, 0.0005f * getWeb.data.area[i].ncurrentpatients, prefecture.localPosition.z);
+                }
+                else{
+                    Debug.Log("getWeb" + getWeb.data.area[i].name);
+                    Debug.Log("object" + transform.GetChild(i).name);
+                }
             }
         }
     }
     //退院者
     public void modeExits(){
-        for(int i = 0;i < Japan.transform.childCount; i++){
-            if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
-                var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
-                prefecture.localScale = new Vector3(0.1f, 0.1f * getWeb.data.area[i].nexits, 0.1f);
-                prefecture.position = new Vector3(prefecture.position.x, 0.05f * getWeb.data.area[i].nexits, prefecture.position.z);
-            }
-            else{
-                Debug.Log("getWeb" + getWeb.data.area[i].name);
-                Debug.Log("object" + transform.GetChild(i).name);
+        if(Japan != null){
+            for(int i = 0;i < Japan.transform.childCount; i++){
+                if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
+                    var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
+                    if(getWeb.data.area[i].nexits > 0){
+                        prefecture.localScale = new Vector3(0.1f, 0.001f * getWeb.data.area[i].nexits,0.1f);
+                    }
+                    else{
+                        prefecture.localScale = new Vector3(0, 0, 0);
+                    }
+                    prefecture.localPosition = new Vector3(prefecture.localPosition.x, 0.0005f * getWeb.data.area[i].nexits, prefecture.localPosition.z);
+                }
+                else{
+                    Debug.Log("getWeb" + getWeb.data.area[i].name);
+                    Debug.Log("object" + transform.GetChild(i).name);
+                }
             }
         }
     }
     //死者
     public void modeDeaths(){
-        for(int i = 0;i < Japan.transform.childCount; i++){
-            if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
-                var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
-                prefecture.localScale = new Vector3(0.1f, 0.1f * getWeb.data.area[i].ndeaths, 0.1f);
-                prefecture.position = new Vector3(prefecture.position.x, 0.05f * getWeb.data.area[i].ndeaths, prefecture.position.z);
-            }
-            else{
-                Debug.Log("getWeb" + getWeb.data.area[i].name);
-                Debug.Log("object" + transform.GetChild(i).name);
+        if(Japan != null){
+            for(int i = 0;i < Japan.transform.childCount; i++){
+                if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
+                    var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
+                    if(getWeb.data.area[i].ndeaths > 0){
+                        prefecture.localScale = new Vector3(0.1f, 0.001f * getWeb.data.area[i].ndeaths,0.1f);
+                    }
+                    else{
+                        prefecture.localScale = new Vector3(0, 0, 0);
+                    }
+                    prefecture.localPosition = new Vector3(prefecture.localPosition.x, 0.0005f * getWeb.data.area[i].ndeaths, prefecture.localPosition.z);
+                }
+                else{
+                    Debug.Log("getWeb" + getWeb.data.area[i].name);
+                    Debug.Log("object" + transform.GetChild(i).name);
+                }
             }
         }
     }
