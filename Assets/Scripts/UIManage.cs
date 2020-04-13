@@ -53,12 +53,12 @@ public class UIManage : MonoBehaviour
                 case "退院者":
                     PreviousMode.text = modeList[3];
                     MainMode.text = modeList[4];
-                    NextMode.text = modeList[1];
+                    NextMode.text = modeList[0];
                     break;
                 case "死者":
                     PreviousMode.text = modeList[4];
-                    MainMode.text = modeList[1];
-                    NextMode.text = modeList[2];
+                    MainMode.text = modeList[0];
+                    NextMode.text = modeList[1];
                     break;
             }
         }

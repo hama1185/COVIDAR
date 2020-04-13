@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Manager : MonoBehaviour
 {
+    string currentMode = "通常";
+    private bool modeFlag = true;
     public Text MainMode;
     public GameObject GameManager;
     ARImage arImage;
@@ -14,16 +16,51 @@ public class Manager : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        ModeChange();
+        modeCheck();
+        modeChange();
     }
-    void ModeChange(){
-        if(MainMode.text == "通常"){
-            arImage.Delete();
-            arImage.enabled = false;
-            
+    void modeCheck(){
+        if(currentMode != MainMode.text){
+            modeFlag = true;
+            currentMode = MainMode.text;
         }
-        else{
+    }
+    void modeChange(){
+        if(MainMode.text == "通常"){
+            arImage.delete();
+            arImage.enabled = false;
+        }
+        else if(MainMode.text == "累計感染者"){
+            arImage.delete();
             arImage.enabled = true;
+            if(modeFlag && arImage.Japan != null){
+                arImage.modePatients();
+                modeFlag = false;
+            }
+        }
+        else if(MainMode.text == "現在感染者"){
+            arImage.delete();
+            arImage.enabled = true;
+            if(modeFlag && arImage.Japan != null){
+                arImage.modeCurrentpatients();
+                modeFlag = false;
+            }
+        }
+        else if(MainMode.text == "退院者"){
+            arImage.delete();
+            arImage.enabled = true;
+            if(modeFlag && arImage.Japan != null){
+                arImage.modeExits();
+                modeFlag = false;
+            }
+        }
+        else if(MainMode.text == "死者"){
+            arImage.delete();
+            arImage.enabled = true;
+            if(modeFlag && arImage.Japan != null){
+                arImage.modeDeaths();
+                modeFlag = false;
+            }
         }
     }
 }
