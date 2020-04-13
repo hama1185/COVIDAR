@@ -409,7 +409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4495e0fba4905c4691a622d62e2df6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugText: {fileID: 1908638373}
   MainMode: {fileID: 4053135}
   GameManager: {fileID: 1688820430}
 --- !u!4 &667350004
@@ -444,7 +443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &784866246
 RectTransform:
   m_ObjectHideFlags: 0
@@ -988,9 +987,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe39c62b1f62f944eab7c0b648ba731d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugText: {fileID: 1908638373}
   PrefabJapan: {fileID: 5862939575958089327, guid: 75ae165bfab59c445adc6fbe2661b9c1,
     type: 3}
-  Japan: {fileID: 0}
   WebManager: {fileID: 1005541876}
 --- !u!4 &1688820432
 Transform:
@@ -1209,7 +1208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1908638372
 RectTransform:
   m_ObjectHideFlags: 0

@@ -23,43 +23,43 @@ public class Manager : MonoBehaviour
         if(currentMode != MainMode.text){
             modeFlag = true;
             currentMode = MainMode.text;
+            arImage.delete();
         }
     }
     void modeChange(){
         if(MainMode.text == "通常"){
-            arImage.delete();
             arImage.enabled = false;
         }
         else if(MainMode.text == "累計感染者"){
-            arImage.delete();
             arImage.enabled = true;
             if(modeFlag){
-                arImage.modePatients();
-                modeFlag = false;            
+                if(arImage.modePatients()){
+                    modeFlag = false;
+                }
             }
         }
         else if(MainMode.text == "現在感染者"){
-            arImage.delete();
             arImage.enabled = true;
             if(modeFlag){
-                arImage.modeCurrentpatients();
-                modeFlag = false;
+                if(arImage.modeCurrentpatients()){
+                    modeFlag = false;
+                }
             }
         }
         else if(MainMode.text == "退院者"){
-            arImage.delete();
             arImage.enabled = true;
             if(modeFlag){
-                arImage.modeExits();
-                modeFlag = false;
+                if(arImage.modeExits()){
+                    modeFlag = false;
+                }
             }
         }
         else if(MainMode.text == "死者"){
-            arImage.delete();
             arImage.enabled = true;
             if(modeFlag){
-                arImage.modeDeaths();
-                modeFlag = false;
+                if(arImage.modeDeaths()){
+                    modeFlag = false;
+                }
             }
         }
     }

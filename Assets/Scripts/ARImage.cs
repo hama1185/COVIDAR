@@ -6,6 +6,7 @@ using GoogleARCore;
 
 public class ARImage : MonoBehaviour
 {
+    public Text DebugText;
     GameObject japan = null;
     public GameObject PrefabJapan;
     private GameObject Japan = null;
@@ -66,7 +67,7 @@ public class ARImage : MonoBehaviour
         Japan = null;
     }
     //累計感染者
-    public void modePatients(){
+    public bool modePatients(){
         if(Japan != null){
             for(int i = 0;i < Japan.transform.childCount; i++){
                 if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
@@ -84,10 +85,14 @@ public class ARImage : MonoBehaviour
                     Debug.Log("object" + transform.GetChild(i).name);
                 }
             }
+            return true;
+        }
+        else{
+            return false;
         }
     }
     //現在感染者
-    public void modeCurrentpatients(){
+    public bool modeCurrentpatients(){
         if(Japan != null){
             for(int i = 0;i < Japan.transform.childCount; i++){
                 if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
@@ -105,10 +110,14 @@ public class ARImage : MonoBehaviour
                     Debug.Log("object" + transform.GetChild(i).name);
                 }
             }
+            return true;
+        }
+        else{
+            return false;
         }
     }
     //退院者
-    public void modeExits(){
+    public bool modeExits(){
         if(Japan != null){
             for(int i = 0;i < Japan.transform.childCount; i++){
                 if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
@@ -126,10 +135,14 @@ public class ARImage : MonoBehaviour
                     Debug.Log("object" + transform.GetChild(i).name);
                 }
             }
+            return true;
+        }
+        else{
+            return false;
         }
     }
     //死者
-    public void modeDeaths(){
+    public bool modeDeaths(){
         if(Japan != null){
             for(int i = 0;i < Japan.transform.childCount; i++){
                 if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
@@ -147,6 +160,10 @@ public class ARImage : MonoBehaviour
                     Debug.Log("object" + transform.GetChild(i).name);
                 }
             }
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }
