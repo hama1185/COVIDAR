@@ -55,4 +55,8 @@ public class ARImage : MonoBehaviour
         //     }
         // }
     }
+    public void Delete(){
+        Destroy(Japan);
+        Japan = null;
+    }
 }
