@@ -16,8 +16,8 @@ public class Manager : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        modeCheck();
-        modeChange();
+        // modeCheck();
+        // modeChange();
     }
     void modeCheck(){
         if(currentMode != MainMode.text){

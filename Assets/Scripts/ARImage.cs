@@ -47,8 +47,8 @@ public class ARImage : MonoBehaviour
             for(int i = 0;i < Japan.transform.childCount; i++){
                 if(Japan.transform.GetChild(i).name == getWeb.data.area[i].name){
                     var prefecture = Japan.transform.GetChild(i).GetComponent<Transform>();
-                    prefecture.localScale = new Vector3(0.1f, 0.1f * getWeb.data.area[i].npatients, 0.1f);
-                    prefecture.position = new Vector3(prefecture.position.x, 0.05f * getWeb.data.area[i].npatients, prefecture.position.z);
+                    prefecture.localScale = new Vector3(0.01f, 0.001f * getWeb.data.area[i].npatients,0.01f);
+                    prefecture.localPosition = new Vector3(prefecture.localPosition.x, 0.0005f * getWeb.data.area[i].npatients, prefecture.localPosition.z);
                 }
                 else{
                     DebugText.text = getWeb.data.area[i].name;
