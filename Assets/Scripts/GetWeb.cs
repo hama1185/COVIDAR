@@ -7,6 +7,7 @@ using MiniJSON;
 public class GetWeb : MonoBehaviour{
     // Start is called before the first frame update
     public COVIDList data{get;set;}
+    public bool finishFlag = false;
     void Awake(){
         StartCoroutine(getWeb());
     }
@@ -24,6 +25,7 @@ public class GetWeb : MonoBehaviour{
         switch(webRequest.downloadProgress){
             case 1:
                 data = JsonUtility.FromJson<COVIDList>(webRequest.downloadHandler.text);
+                finishFlag = true;
                 break;
             case 0.5f:
                 Debug.Log("connecting... downloadHandler is null");
